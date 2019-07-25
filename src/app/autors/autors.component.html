@@ -1,19 +1,19 @@
 <h2>Autores funcionando</h2>
-<hr>
-<app-autors>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-                <tr *ngFor="let authors of authors">
-                    
-                    <td>{{ authors.name }}</td>
-                    <td>{{ authors.email }}</td>
-                </tr>
-        </tbody>
-    </table>
-</app-autors>
+<hr />
+<table class="table" >
+    <caption>Lista de autores registrados</caption>
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let author of authors.data; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ author.name }}</td>
+            <td>{{ author.email }}</td>
+        </tr>
+    </tbody>
+</table>
