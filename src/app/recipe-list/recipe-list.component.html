@@ -1,0 +1,13 @@
+<h1>Recetas-</h1>
+
+
+
+
+<div class="card" style="width: 18rem;" *ngFor="let rec of recipe.data; let i = index">
+   <!--<img src="'{{rec.image}}'" = class="card-img-top" alt="...">--> 
+    <div class="card-body">
+      <h5 class="card-title">{{rec.name}}</h5>
+      <h3 class="card-text"> Categoria {{rec.name}}</h3>
+      <a href="#" class="btn btn-primary">Detalles</a>
+    </div>
+  </div>

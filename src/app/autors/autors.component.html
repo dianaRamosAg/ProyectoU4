@@ -1,1 +1,20 @@
-<p>autors works!</p>
+<h2>Autores funcionando</h2>
+<hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <app-autors
+        *ngFor="let author of authors">
+            <tr>
+                <td>{{ author.name }}</td>
+                <td>{{ author.email }}</td>
+            </tr>
+        </app-autors>
+    </tbody>
+</table>
