@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AutorsComponent } from './autors/autors.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipesDetailComponent } from './recipes-detail/recipes-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { RecipesDetailComponent } from './recipes-detail/recipes-detail.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
