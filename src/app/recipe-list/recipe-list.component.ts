@@ -71,6 +71,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from "../recipes.service";
+import { AutorsService } from '../autors.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
@@ -80,12 +81,23 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-
+  public authors;
   public recipes;
   formRecipe;
 
   constructor(private apirecipe: RecipesService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private apiauthor: AutorsService) {
+      this.apiauthor.getAuthors().subscribe(
+        (author_result) =>{
+          this.authors = author_result;
+          console.log(this.authors);
+        },
+        (err) => {
+          console.log(err);
+          this.authors = err;
+        }
+      );
     this.apirecipe.getRecipe().subscribe(
       (recipes_result) => {
         this.recipes = recipes_result;

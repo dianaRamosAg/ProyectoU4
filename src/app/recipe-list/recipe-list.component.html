@@ -8,12 +8,13 @@
         <div class="card-block"> <br>
             <h4 class="card-title" style="text-align:center"> {{rec.name}}</h4>
             <img [src]="rec.image" class="card-img-top img-fluid" alt="..." style="width:50px;height:50px">
-            <h6 class="card-text"> Categoria : {{rec.name}}</h6>
+            <h6 class="card-text"> Categoria : {{rec.name_cat}}</h6>
             <a class="btn btn-info center-block" [routerLink]="['recipe',rec._id]">Ver más</a>
         </div>
         <br>
     </div>
 </div>
+
 <h1 class="m-md-5 text-md-center"> Agregar Receta </h1>
 <div class="container justify-content-center">
     <form #frmRecipe="ngForm" [formGroup]="formRecipe" (ngSubmit)="guardarRecipe(frmRecipe.value)">
@@ -144,9 +145,27 @@
                 </div>
             </div>
         </div>
-        <br>
         <button class="btn btn-primary" type="submit">
             Guardar
         </button>
     </form>
 </div>
+<br>
+<table class="table m-md-5S" >
+    <caption>Lista de autores registrados</caption>
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let author of authors.data; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ author._id }}</td>
+            <td>{{ author.name }}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
