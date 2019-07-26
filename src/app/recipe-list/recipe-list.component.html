@@ -1,36 +1,30 @@
 <br>
 <hr>
-<h1>   - Recetas -</h1>
+<h1> - Recetas -</h1>
 
 <hr>
 <div class="row ">
-      <div class="col-md-4 card-columns card" *ngFor="let rec of recipe.data; let i = index" >
-        <div class="card-block"> <br> 
-        <h4 class="card-title" style="text-align:center">  {{rec.name}}</h4>
-        <img [src]="rec.image" class="card-img-top img-fluid" alt="..." style="width:50px;height:50px">
-        <h6 class="card-text">  Categoria : {{rec.name}}</h6>
-        <a class="btn btn-info center-block" [routerLink]="['recipe',rec._id]" >Ver más</a>
-      </div>
-
-
-<br>
-<hr>
-  <h1 align="center"> Agregar Receta </h1>
-  <div class="container">
-    <form #frmRecipe="ngForm" 
-        [formGroup]="formRecipe"
-        (ngSubmit)="guardarRecipe(frmRecipe.value)">
+    <div class="col-md-4 card-columns card" *ngFor="let rec of recipes.data; let i = index">
+        <div class="card-block"> <br>
+            <h4 class="card-title" style="text-align:center"> {{rec.name}}</h4>
+            <img [src]="rec.image" class="card-img-top img-fluid" alt="..." style="width:50px;height:50px">
+            <h6 class="card-text"> Categoria : {{rec.name}}</h6>
+            <a class="btn btn-info center-block" [routerLink]="['recipe',rec._id]">Ver más</a>
+        </div>
+        <br>
+    </div>
+</div>
+<h1 class="m-md-5 text-md-center"> Agregar Receta </h1>
+<div class="container justify-content-center">
+    <form #frmRecipe="ngForm" [formGroup]="formRecipe" (ngSubmit)="guardarRecipe(frmRecipe.value)">
         <div class="form-group">
             <label for="name">
                 Nombre
             </label>
-            <input type="text" #name class="form-control"
-                formControlName="name"
-            >
+            <input type="text" #name class="form-control" formControlName="name">
             <div *ngIf="formRecipe.controls['name'].invalid
                         && (formRecipe.controls['name'].dirty 
-                        || formRecipe.controls['name'].touched)"
-                        class="alert alert-danger">
+                        || formRecipe.controls['name'].touched)" class="alert alert-danger">
                 <div *ngIf="formRecipe.controls['name'].errors.required">
                     El nombre es requerido
                 </div>
@@ -40,12 +34,10 @@
             <label for="ingredients">
                 Ingredientes
             </label>
-            <input type="text" #ingredients class="form-control"
-            formControlName="ingredients">
+            <input type="text" #ingredients class="form-control" formControlName="ingredients">
             <div *ngIf="formRecipe.controls['ingredients'].invalid
                         && (formRecipe.controls['ingredients'].dirty 
-                        || formRecipe.controls['ingredients'].touched)"
-                        class="alert alert-danger">
+                        || formRecipe.controls['ingredients'].touched)" class="alert alert-danger">
                 <div *ngIf="formRecipe.controls['ingredients'].errors.required">
                     Los ingredientes son requeridos
                 </div>
@@ -55,12 +47,10 @@
             <label for="process">
                 Procedimiento
             </label>
-            <input type="text" #process class="form-control"
-            formControlName="process">
+            <input type="text" #process class="form-control" formControlName="process">
             <div *ngIf="formRecipe.controls['process'].invalid
                         && (formRecipe.controls['process'].dirty 
-                        || formRecipe.controls['process'].touched)"
-                        class="alert alert-danger">
+                        || formRecipe.controls['process'].touched)" class="alert alert-danger">
                 <div *ngIf="formRecipe.controls['process'].errors.required">
                     El procedimiento es requerido
                 </div>
@@ -70,109 +60,93 @@
             <label for="name_cat">
                 Categoria
             </label>
-            <input type="text" #name_cat class="form-control"
-            formControlName="name_cat"
-            >
+            <input type="text" #name_cat class="form-control" formControlName="name_cat">
             <div *ngIf="formRecipe.controls['name_cat'].invalid
                         && (formRecipe.controls['name_cat'].dirty 
-                        || formRecipe.controls['name_cat'].touched)"
-                        class="alert alert-danger">
+                        || formRecipe.controls['name_cat'].touched)" class="alert alert-danger">
                 <div *ngIf="formRecipe.controls['name_cat'].errors.required">
                     La categoria es requerida
                 </div>
             </div>
         </div>
         <div class="form-group">
-          <label for="image">
-              Imagen
-          </label>
-          <input type="text" #image class="form-control"
-          formControlName="image">
-          <div *ngIf="formRecipe.controls['image'].invalid
+            <label for="image">
+                Imagen
+            </label>
+            <input type="text" #image class="form-control" formControlName="image">
+            <div *ngIf="formRecipe.controls['image'].invalid
                       && (formRecipe.controls['image'].dirty 
-                      || formRecipe.controls['image'].touched)"
-                      class="alert alert-danger">
-                    <div *ngIf="formRecipe.controls['cost_aprox'].errors.required">
-                        La imagen es requerida
-                    </div>
-          </div>
+                      || formRecipe.controls['image'].touched)" class="alert alert-danger">
+                <div *ngIf="formRecipe.controls['cost_aprox'].errors.required">
+                    La imagen es requerida
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <label for="cost_aprox">
-              Costo aproximado
-          </label>
-          <input type="text" #cost_approx class="form-control"
-          formControlName="cost_approx">
-          <div *ngIf="formRecipe.controls['cost_approx'].invalid
+            <label for="cost_aprox">
+                Costo aproximado
+            </label>
+            <input type="text" #cost_approx class="form-control" formControlName="cost_approx">
+            <div *ngIf="formRecipe.controls['cost_approx'].invalid
                       && (formRecipe.controls['cost_approx'].dirty 
-                      || formRecipe.controls['cost_approx'].touched)"
-                      class="alert alert-danger">
-              <div *ngIf="formRecipe.controls['cost_approx'].errors.required">
-                  El costo aproximado es requerido
-              </div>
-          </div>
+                      || formRecipe.controls['cost_approx'].touched)" class="alert alert-danger">
+                <div *ngIf="formRecipe.controls['cost_approx'].errors.required">
+                    El costo aproximado es requerido
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <label for="source">
-              Fuente de consulta
-          </label>
-          <input type="text" #source class="form-control"
-          formControlName="source">
-          <div *ngIf="formRecipe.controls['source'].invalid
+            <label for="source">
+                Fuente de consulta
+            </label>
+            <input type="text" #source class="form-control" formControlName="source">
+            <div *ngIf="formRecipe.controls['source'].invalid
                       && (formRecipe.controls['source'].dirty 
-                      || formRecipe.controls['source'].touched)"
-                      class="alert alert-danger">
-              <div *ngIf="formRecipe.controls['source'].errors.required">
-                  La fuente es requerida
-              </div>
-          </div>
+                      || formRecipe.controls['source'].touched)" class="alert alert-danger">
+                <div *ngIf="formRecipe.controls['source'].errors.required">
+                    La fuente es requerida
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <label for="comments">
-              Comentarios
-          </label>
-          <input type="text" #comments class="form-control"
-          formControlName="comments">
-          <div *ngIf="formRecipe.controls['comments'].invalid
+            <label for="comments">
+                Comentarios
+            </label>
+            <input type="text" #comments class="form-control" formControlName="comments">
+            <div *ngIf="formRecipe.controls['comments'].invalid
                       && (formRecipe.controls['comments'].dirty 
-                      || formRecipe.controls['comments'].touched)"
-                      class="alert alert-danger">
-          </div>
+                      || formRecipe.controls['comments'].touched)" class="alert alert-danger">
+            </div>
         </div>
         <div class="form-group">
-          <label for="score">
-              Calificación
-          </label>
-          <input type="text" #score class="form-control"
-          formControlName="score">
-          <div *ngIf="formRecipe.controls['score'].invalid
+            <label for="score">
+                Calificación
+            </label>
+            <input type="text" #score class="form-control" formControlName="score">
+            <div *ngIf="formRecipe.controls['score'].invalid
                       && (formRecipe.controls['score'].dirty 
-                      || formRecipe.controls['score'].touched)"
-                      class="alert alert-danger">
-              <div *ngIf="formRecipe.controls['score'].errors.required">
-                  La calificación es requerida
-              </div>
-          </div>
+                      || formRecipe.controls['score'].touched)" class="alert alert-danger">
+                <div *ngIf="formRecipe.controls['score'].errors.required">
+                    La calificación es requerida
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <label for="author">
-              Autor
-          </label>
-          <input type="text" #author class="form-control"
-          formControlName="author">
-          <div *ngIf="formRecipe.controls['author'].invalid
+            <label for="author">
+                Autor
+            </label>
+            <input type="text" #author class="form-control" formControlName="author">
+            <div *ngIf="formRecipe.controls['author'].invalid
                       && (formRecipe.controls['author'].dirty 
-                      || formRecipe.controls['author'].touched)"
-                      class="alert alert-danger">
-              <div *ngIf="formRecipe.controls['author'].errors.required">
-                  El autor es requerido
-              </div>
-          </div>
+                      || formRecipe.controls['author'].touched)" class="alert alert-danger">
+                <div *ngIf="formRecipe.controls['author'].errors.required">
+                    El autor es requerido
+                </div>
+            </div>
         </div>
         <br>
         <button class="btn btn-primary" type="submit">
             Guardar
         </button>
-      </form>
-      <br>
+    </form>
 </div>
