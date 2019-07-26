@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AutorsComponent } from './autors/autors.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipesDetailComponent } from './recipes-detail/recipes-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
@@ -24,7 +25,9 @@ import { BodyComponent } from './body/body.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
