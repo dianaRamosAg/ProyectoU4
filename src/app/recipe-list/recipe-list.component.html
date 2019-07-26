@@ -1,10 +1,17 @@
+<br>
+<hr>
 <h1>Recetas</h1>
 
-<div class="card" style="width: 18rem;" *ngFor="let rec of recipe.data; let i = index">
-   <!--<img src="'{{rec.image}}'" = class="card-img-top" alt="...">--> 
-    <div class="card-body">
-      <h4 class="card-title">{{rec.name}}</h4>
-      <h5 class="card-text"> Categoria {{rec.name}}</h5>
-      <a class="btn btn-primary" [routerLink]="['recipe',rec._id]">Detalles</a>
+<hr>
+
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-4" *ngFor="let rec of recipe.data; let i = index" > 
+        <h4 class="card-title">{{rec.name}}</h4>
+        <img [src]="rec.image" class="card-img-top" alt="..." style="width:50px;height:50px">
+        <h6 class="card-text"> Categoria : {{rec.name}}</h6>
+        <a class="btn btn-info" [routerLink]="['recipe',rec._id]">Ver más</a></div>
+        <br>
+        <hr>
     </div>
   </div>
