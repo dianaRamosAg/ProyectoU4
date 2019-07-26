@@ -1,9 +1,8 @@
 <br>
 <hr>
-<h1> - Recetas -</h1>
-
+<h1 class="text-md-center"> Recetas </h1>
 <hr>
-<div class="row ">
+<div class="row">
     <div class="col-md-4 card-columns card" *ngFor="let rec of recipes.data; let i = index">
         <div class="card-block"> <br>
             <h4 class="card-title" style="text-align:center"> {{rec.name}}</h4>
@@ -14,7 +13,6 @@
         <br>
     </div>
 </div>
-
 <h1 class="m-md-5 text-md-center"> Agregar Receta </h1>
 <div class="container justify-content-center">
     <form #frmRecipe="ngForm" [formGroup]="formRecipe" (ngSubmit)="guardarRecipe(frmRecipe.value)">
@@ -145,27 +143,31 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-success btn-block" type="submit">
             Guardar
         </button>
     </form>
 </div>
 <br>
-<table class="table m-md-5S" >
-    <caption>Lista de autores registrados</caption>
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let author of authors.data; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ author._id }}</td>
-            <td>{{ author.name }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container justify-content-center">
+    <div class="col-md-6">
+        <table class="table">
+            <caption>Lista de autores registrados</caption>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let author of authors.data; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ author._id }}</td>
+                    <td>{{ author.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <br>

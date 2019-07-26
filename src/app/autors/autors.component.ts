@@ -7,6 +7,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   templateUrl: './autors.component.html',
   styleUrls: ['./autors.component.css']
 })
+
 export class AutorsComponent implements OnInit {
   public authors;
   formAuthor;

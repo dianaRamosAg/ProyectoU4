@@ -1,11 +1,14 @@
+<br>
+<hr>
+<h1 class="text-md-center"> Autores </h1>
+<hr>
 <div class="container-fluid">
     <div class="row">
-        <table class="table m-md-5S" >
+        <table class="table m-md-5S">
             <caption>Lista de autores registrados</caption>
             <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Email</th>
                 </tr>
@@ -13,53 +16,42 @@
             <tbody>
                 <tr *ngFor="let author of authors.data; let i = index">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ author._id }}</td>
                     <td>{{ author.name }}</td>
                     <td>{{ author.email }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-    <div class="row">
-        <div class="col-md-3">
-                <b>Agrega un nuevo autor</b>
-                <form #frmProduct="ngForm" 
-                [formGroup]="formAuthor"
-                (ngSubmit)="guardarAutor(formAuthor.value)"> 
-        
-                <div class="form-group">
-                    <label for="name">
-                        Nombre
-                    </label>
-                    <input type="text" #name class="form-control"
-                        formControlName="name"
-                    >
-                    <div *ngIf="formAuthor.controls['name'].invalid
+    <h1 class="m-md-5 text-md-center"> Agregar autor </h1>
+    <div class="container justify-content-center">
+        <form #frmProduct="ngForm" [formGroup]="formAuthor" (ngSubmit)="guardarAutor(formAuthor.value)">
+            <div class="form-group">
+                <label for="name">
+                    Nombre
+                </label>
+                <input type="text" #name class="form-control" formControlName="name">
+                <div *ngIf="formAuthor.controls['name'].invalid
                                 && (formAuthor.controls['name'].dirty 
-                                || formAuthor.controls['name'].touched)"
-                                class="alert alert-danger">
-                        <div *ngIf="formAuthor.controls['name'].errors.required">
-                            El nombre es requerido
-                        </div>
-                        <div *ngIf="formAuthor.controls['name'].errors.minlength">
-                            El nombre debe ser de 4 o más caracteres
-                        </div>
+                                || formAuthor.controls['name'].touched)" class="alert alert-danger">
+                    <div *ngIf="formAuthor.controls['name'].errors.required">
+                        El nombre es requerido
+                    </div>
+                    <div *ngIf="formAuthor.controls['name'].errors.minlength">
+                        El nombre debe ser de 4 o más caracteres
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                        <label for="name">
-                            Email
-                        </label>
-                        <input type="text" #name class="form-control"
-                            formControlName="email">
-                </div>
-                
-                <button class="btn btn-primary" type="submit">
-                    Guardar
-                </button>
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="name">
+                    Email
+                </label>
+                <input type="text" #name class="form-control" formControlName="email">
+            </div>
+
+            <button class="btn btn-success btn-block" type="submit">
+                Guardar
+            </button>
+        </form>
     </div>
 </div>
